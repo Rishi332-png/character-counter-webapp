@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character counter</title>
+</head>
+<style>
+body{
+background-color: black;
+color: white;
+font-family: 'Times New Roman', Times, serif;
+}
+#headingname{
+font-size: 60px;
+text-align: center;
+margin-top: 10vw;
+margin-bottom: -10px;
+}
+#headingcontainer{
+margin-left: 5vw;
+margin-right: 5vw;
+}
+.inputcontainer{
+margin-left: 5vw;
+height: 15vw;
+width: 90%;
+background: transparent;
+border: 5px solid white;
+border-radius: 20px;
+color: beige;
+resize: vertical;
+white-space: pre-wrap;
+overflow-y: auto;
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 20px;
+}
+.resultcontainer{
+margin-left: 5vw;
+height: 50px;
+border:3px solid white;
+width: 150px;
+border-radius: 20px;
+color: white;
+padding-left: 50px;
+padding-top: 20px;
+padding-right: 50px;
+font-size: larger;
+}
+.forinline{
+display: flex;
+}
+.controlcontainer{
+display: flex;
+}
+.numberentry{
+margin-left: 30px;
+background: transparent;
+border: 3px solid white;
+border-radius: 20px;
+padding-left: 20px;
+color: white;
+}
+
+</style>
+<body>
+<div id="headingcontainer">
+<h1 id="headingname">Charcater Counter</h1>
+<p id="introductionparagraph">This is a character counter web application in this you can customize the size of the paragraph when put in it 
+and you can check the actual space and number od characters the paragraph is taking . Just enter the number of characters you
+and number of lines if needed and enter the content in the below box on hitting enter the it will display the extra space present if the content is upto the mark then it 
+will show the exct number . It is just a mini project to exercise, practice , and brush up my javascript skills. Small start is the beginning of new era. Welcome user to the 
+web page.
+</p>
+</div>
+<textarea type="text" class="inputcontainer" placeholder=""></textarea>
+
+<div class="forinline">
+<div class="resultcontainer">
+
+</div>
+
+<div class="controlcontainer">
+<input type="number"  placeholder="Number of Characters" class="numberentry">
+</div>
+<button class="submit" style="margin-left: 20px; width: 15%; border: 3px solid white; background-color: transparent; border-radius: 20px; color: white; pointer-events: hover;">Submit</button>
+</div>
+</div>
+
+
+<script>
+let contentcontainer     = document.getElementsByClassName("inputcontainer")[0];
+let resultcontainer      = document.getElementsByClassName("resultcontainer")[0];
+let entrynumbercontainer = document.getElementsByClassName("numberentry")[0];
+let implementationbutton = document.getElementsByClassName("submit")[0];
+
+
+
+const working= function(){
+const length_of_content = contentcontainer.value.length;
+const marked_number     = parseInt(entrynumbercontainer.value);
+
+
+if(length_of_content == marked_number){
+
+resultcontainer.textContent = parseInt(entrynumbercontainer.value) || 0;
+return resultcontainer;
+}
+
+const diff = length_of_content - marked_number;
+resultcontainer.innerHTML = diff + `  extra character`;
+return resultcontainer;
+}
+
+implementationbutton.onclick = working;
+
+
+</script>
+</body>
+</html>
